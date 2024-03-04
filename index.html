@@ -232,6 +232,17 @@
                     <input type="phone" class="inputPhone" id="phoneInput"
                         style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
                 </div>
+                <div class = "officeSelection" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <label for="inputOffice"
+                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Office:</label>
+                    <select class="inputOffice" id="inputOffice"
+                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;"
+                        onchange="officeSelected(this.value)">
+                        <option value="Brisbane" selected>Brisbane</option>
+                        <option value="Melbourne">Melbourne</option>
+                    </select>
+                </div>
+
                 <div class="logo-section">
                     <label for="abLogoType" style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Logo
                         Type:</label>
@@ -435,8 +446,12 @@
                                 </td>
                                 <td colspan="5"
                                     style=" font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
-                                    <span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;"><strong>Ainslie
+                                    <span class="officeBrisbane1"
+                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px;"><strong>Ainslie
                                             Brisbane</strong></span>
+                                    <span class="officeMelb1"
+                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;"><strong>Ainslie
+                                            Melbourne</strong></span>
                                 </td>
                             </tr>
                             <!-- telephone row -->
@@ -449,9 +464,14 @@
                                 </td>
                                 <td colspan="5"
                                     style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
-                                    <a style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                    <a class="officeBrisbane2"
+                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
                                         href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9" target="_blank">L6, 12 Creek
                                         Street Tower,</a>
+                                    <a class="officeMelb2"
+                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8" target="_blank">L14, 357
+                                        Collins Street,</a>
                                 </td>
                             </tr>
                             <!--website row-->
@@ -470,9 +490,14 @@
                                 </td>
                                 <td colspan="5"
                                     style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <a style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                    <a class="officeBrisbane3"
+                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
                                         href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9" target="_blank">Brisbane,
                                         Queensland 4000</a>
+                                    <a class="officeMelb3"
+                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8" target="_blank">Melbourne,
+                                        Victoria 3000</a>
                                 </td>
                             </tr>
 
@@ -505,7 +530,7 @@
                                 </td>
                                 <td style="padding-top: 20px;">
                                     <!--face book logo-->
-                                    <a href="https://www.facebook.com/AinslieBullion/" target="_blank"
+                                    <a class = "abfb" href="https://www.facebook.com/AinslieBullion/" target="_blank"
                                         title="Ainslie Facebook link">
                                         <span style='color:#f9f7f7;'>
                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAMqSURBVFjDxZdLSFtBFIZjU4MgqIuAKU1TFQNFXLgIrWJTEILFhdCVD0QUXAgiiI9F3AiCwddCXLRYaEWFSuiqEQzFhSuRQhACEakgFY1R8C1oLdj4d86EhJt4czM32uTAv7j3npnzzeOcuaMZHBzUSAXgFdMHpl9Mv3F/u2baZPrI9Do2njTwU6YvTH/xf83F9DwKgL0wMf1A6szD9EwK8BWpN5qJRxT8JdOfNADcMtkI4JOaVgcHB3C73RgfH0dXVxfXyMgIXC4XdnZ21EJ8JoCfIp5bW1vo7u5GSUkJNBqNrIqKitDT06MGJEAA54m8pqenUVBQEDdwrIxGI2ZmZkQAbjSJPEZHR6HT6YSDh6XVavkyJTJFAKfTyTtSCmSxWNDc3Iy2tja0tLTAZDJFfZ+dnU0OYH9/X3Has7KyMDk5idPT06h29fX1UX4GgwF7e3vqAfr7+xVH7nA4ZNs1NDTc8e3r61MHcHh4iOLi4rjBc3Jy+AyFjWbB4/FgbW0NNptNdlPu7u6KAywsLCiOnlLx7OwstI1vbtDY2Bj5lpGRIdtmcXFRHGBoaEgRoLS0FOfnoew9OTkRStHh4WFxgN7eXtlOMjMzkZeXB6vViouLiwhARUUFf5+bm8t95NpSn8IAHR0dsp1UV1fD7/fj6OgIwWAwVNBvb/kzlehAIICamhrZtp2dneIAVEDkOqmtrU1YWOrq6mTbDgwMiAMsLy8/OMD8/Lw4AE1zbEUj0TqXl5ejvb0dl5eX3JeyobW1FZWVlaiqqkJ+fv6ddnq9Htvb2+oKUbx9QDKbzZE0pPUvLCxUzAACpr2iCmB9fZ3varkOy8rKIml4fHzM0zJecBq9z+dL7jCamJi4N8DU1FTypyEZ1fxkAex2u9BxfJ3IiUYhXY5EANnZ2RgbGxP6JSKATRHHlZUVNDU18c7poJJuQvoVC683peHq6ioEjf+SvYcK83q9WFpawtXVFX+mkkyFa25uDhsbG1BpTgKwIn32lgC0TN/SEPw70+PwzegJzW4Kg9O+M8deTo0pmgk304s7t2MJyBuEbkuBBwpI1z4/bTimd0w6abx/q8VfDLKrmeIAAAAASUVORK5CYII="
@@ -515,7 +540,7 @@
                                 </td>
                                 <td style="padding-top: 20px;">
                                     <!--insta logo-->
-                                    <a href="https://www.instagram.com/ainsliebullion/" target="_blank"
+                                    <a class="abig" href="https://www.instagram.com/ainsliebullion/" target="_blank"
                                         title="Ainslie Instagram link">
                                         <span style='color:#f9f7f7;'>
                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAM8SURBVFjDxZdLS1tBFMdDW7oxgi4EY9NWMMF+glahKSKRqqgEg4vgQkUERRcafCwERfwMLRRaETUq8dVsSskmi7gI1EXBhY1KEXzhK4mgSaSh/8455cJNUq83aUwO/Bf3zMw9vztz5swdzcTEhEYuAK+E3gv9FArj/y0i5Bf6IPQ6MZ488BMhh1AM92suoedxAMLxTMiH7Nk3oadyACeybzQTDyj4S6FoDgB+C5kJ4CNyZ58I4IeanqFQCD6fD0tLS1heXsbKykqcyEdaX1/H5eWlWoBDAgjdFXhychI6nQ4ajUaVCgsLMTw8jPPz87sAfmmUWgOBAOrr6/mlJSUlsFgs6OnpYXV3d8dJ8tlsNpSWlvKYmpoaBINBRQJFgPHxcX5Rc3Mz9vf3Vc3pzc0Ng7e0tPDY0dHR9ADC4TCKi4uh1+txenqqKjhBVlRUoKOjA8fHxygrK4NWq8XFxUXqAJRw9AX0JYl2dXWF2dlZXmfSwsICYrEY9vb2eIzBYOA+XV1d/Oz1elMHoGynwbSuctva2oLZbE5KPPLt7u5ie3sbfr+f+9rtdm6bn59PHYC2ViLA9fU1amtr2V9XV8dfTjPR0NDAvqqqqrh3SABzc3OZAVhdXWUf7QzKEckikQgaGxu5jWYuEcDhcGQGYHBw8NYpXVtb4zbqc28AIyMj7HO5XMkni/DdOwCtJfloumnaJYtGo1wrqG1qaiozAFTXEwGoLJtMJvZT4jmdTl7zpqYm9lVWVuLs7CwzAFLC9fb2xvl3dnZQXV2dtA2pAG1ubsb1HRoaSn8XbGxs3FqIaMpnZmbQ39+Pvr4+TE9P/7Pmt7e38zvcbnfqAFTP8/PzUVRUpFhKlcaXl5cjLy8PR0dH6R1GY2Nj/AVWq1X1eUB2cHCA1tZWHkvLkPZpKC8wRqMRbW1tnFi3iYJ1dnbyISRVxpOTkzsBIkodKKsHBgb4J0PtD0lBQQHXA/mOUALwq5lW2oIej4erIGU1bS25yEfnAvVJIWf4l+wdcmeLBGDKIcBbAngo9DkHwb8KPZJuRjqh71kMTnlnTLyc6rM0E1+EXiTdjmUgb/D3tnSYoYB07aNf6kUhi9Bjebw/Ice/thWx8wMAAAAASUVORK5CYII="
@@ -525,7 +550,7 @@
                                 </td>
                                 <td style="padding-top: 20px;">
                                     <!--linked in logo-->
-                                    <a href="https://www.linkedin.com/company/ainslie-bullion/" target="_blank"
+                                    <a class="abln" href="https://www.linkedin.com/company/ainslie-bullion/" target="_blank"
                                         title="Ainslie Linkedin link">
                                         <span style='color:#f9f7f7;'>
                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAK3SURBVFjD1Vc7ixpRFFYRsdgmKrqoCBZa+EAQREFb++32F1hoay/YaGFkUQIaCEgKjbo+OjerhSliaZNEhBSJiqCIISCoUUJO7rnZGYy7I8zqKnvgQ+e7c8/55p5zX4JwOCzYBAA4CMIEnwl+EPyG/ewnQZsgTuDajrcZ+AXBG4I1PK1lCGT/CSCEnOA9HM8+ECioAPJHSPAajm9vMTaT89UJBGBMBwq4gtPZKxTwiat1MBhALBaDUCgEJF+8kUwmod/v7xLwXXA3Te7ZdDoFl8sFAlIm+8BqtcJ4POZMg4Cr5ebmhnUikUioI7lc/igR1WqVcwg4BZRKJdpZJBJBIpGA1WoFnU4HDAYDr+DYH33xFlAul6mDs7MzmEwmLO/3+3kLQF+PFiAWiyGTyVBuNBqB0+k8ngDszNSA2+0GnU7HO/97CRAKhdSJTCYDhUIBSqWSjghyGo0G9Ho95fD5/PwcPB4PqFSqw6YAkU6naR0gjEYj5drtNn1utVoQiURgOBzCfD6nv4FA4LACisUiy5vNZsphPXDZer0Gr9d7OAHZbJblTSYT5Xq9HstFo1FanLVajeVSqRTb/0kF4JBrtVrKYaEyVqlUjiMAFye1Wk05i8VyfAHdbpfOCORsNtuD/Z+/ABxOxnCYkcPdktmymRqw2+3se1iQewnAqcc48Pl8UCgUIJfLsV+LGxRy8Xic3SVxpcR38vk8BINBtv/19TV/Abe3t3ufBRg0Go2dAn491LBYLODy8pLuA5vOcHlm9ojN1Q7BLN0MpFIpXFxcwGw244r/BwV84TyukDNAvV6n6cA88gEOe7PZhOVyuetI9hUFvITTWQoFuOA0x3JMvZu5GWVOIKC4eTVTwL/r0rHsI4F2+3Iqg6e/nGKq3xHo7t2ON4TgcnZF0D9Q0AXBt7uPc2zH+wtP2Yo4/tPNJQAAAABJRU5ErkJggg=="
@@ -535,7 +560,7 @@
                                 </td>
                                 <td style="padding-top: 20px;">
                                     <!--x logo-->
-                                    <a href="https://twitter.com/AinslieBullion" target="_blank" title="Ainslie X link">
+                                    <a class="abx" href="https://twitter.com/AinslieBullion" target="_blank" title="Ainslie X link">
                                         <span style='color:#f9f7f7;'>
                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAANVSURBVFjDxVc7SJtRFP5pQ0QUdRAxpGkEKXZQ1MFGMIkgxU5CyeDgAzcFcXBwUXEQFAfnFIIJiFqNTypiDTgJgmJAs6gJSBGrCD7rkgSNfr3nlNBo4++fapID33D+e5Pz3fO8V+rt7ZUiAcAg8EXgh4Afz5eAgE/AJmB8aC/SsFbgq0AI8ZV5Af09AuLDW4F1JE7cArpIAlNIvJAnXpHxDwLBJBC4E/hIBOxInjiIgDfaSigUwsLCAqanpzE+Po7h4WGMjY3B6/Uq+ufT01NMTEzg4OBAbtsREfgV1T93d+ju7oYkSSgoKIDBYEBubi6KiopweXkpa9zv98NoNKK8vBzHx8dyW28kudWLiwsUFhbCYrHg6uoKbrcbaWlpaGlpeTywgnhTUxP0ej22t7ef9JT0ZL0Iozk5OVhaWmKdQkFemZmZibq/p6cHqampWF1dVRQqSckmUarQaDQ4PDxkva6uDlqtluMcKVarFSkpKZiaUl7ViggEAgGUlpayYZKTkxMm1NDQ8Leo5+ehVqsxODgYUxlISjdubW0hOzsbo6OjrC8uLnIoqEp8Ph8yMzPR2toacx1KsWzu7+/n+O7u7rLe3t7Ohqkyamtr2VNxJXB9fQ2z2YzKykruE8FgEMXFxUzq/Pz8vzqRFOsPdnZ2kJGRwd4gWVtbYwIOhyMxBEioM1I+eDwe1gcGBrg/ELmEEaAENJlMHApqPhSaiooK1uNKYHl5GVlZWejo6OBu19nZyd8pMdPT09HX1xc/AtQVyXhbWxvrTqeTPbGyssL60NAQVCoVNjc3X57A/v4+8vPzUVNTw9kflsbGRuTl5fGAIvdXV1ejrKxMcUkqIhCeblRyZ2dn99aoHVNbpgFEQu2aErSrq+vlCNTX10On02Fvby/qergrzs3NsU6zgKpiY2PjeQRub2/5JJRc6+vyd9bm5mY+ebgUaW7Q/KAx/hSBqMGi0rLZbNxklEw3ujuQQaqMqqoqlJSUsFfoUiNXmkTA99jpZ2dn4XK5FGc0XdeINI1lu92OkZERTE5OyiUkX8msSJ44iYApiQQ+EYHXAt+SYJxiqwq/jDQCngQap7x79/Bx+iZBnvgu8P6f13EEETP+vJaOXsgg9e2flHACnwXUkfZ+A/Rch+ehekQtAAAAAElFTkSuQmCC"
                                                 alt="image" style="vertical-align:middle;">
@@ -721,7 +746,7 @@
                                                         alt="image">
                                                 </a>
                                             </td>
-                                            
+
 
                                             <!--
                                             <td style="text-align: left; width: 25%;">
@@ -764,20 +789,6 @@
         location.reload();
     }
 
-    // Select all buttons using the .mode-toggle class
-    document.querySelectorAll('.mode-toggle').forEach(button => {
-        button.addEventListener('click', function () {
-            console.log("toggle theme");
-            // Select all .section elements and toggle the .dark class on each
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.toggle('dark');
-            });
-        });
-    });
-
-
-
-
     // Firefox unsupported warning - copies parent elements for some reason
     // document.addEventListener('DOMContentLoaded', function () {
     //     var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -809,6 +820,13 @@
             logoSection.style.display = 'flex'; // Show logoSection if abSection is active
         } else {
             logoSection.style.display = 'none'; // Hide logoSection otherwise
+        }
+
+        const officeSection = document.querySelector('.officeSelection');
+        if (sectionId !== 'abSection'){
+            officeSection.style.display = 'none';
+        } else {
+            officeSection.style.display = 'flex';
         }
 
         // Clear input fields
@@ -1020,6 +1038,9 @@
         const allTargetLogos = document.querySelectorAll('span[data-target-logo]');
         const abWebsite = document.querySelector('.abwebsite');
         const acWebsite = document.querySelector('.acwebsite');
+        const facebookLink = document.querySelector('.abfb');
+        const xLink = document.querySelector('.abx');
+        const igLink = document.querySelector('.abig');
 
         allTargetLogos.forEach(targetLogo => {
             if (targetLogo.getAttribute('data-target-logo') === clickedLogoClass) {
@@ -1033,11 +1054,40 @@
         if (clickedLogoClass === 'acLogo') {
             abWebsite.style.display = 'none';
             acWebsite.style.display = 'inline';
+            facebookLink.href = 'https://www.facebook.com/ainsliecrypto.com.au';
+            xLink.href = 'https://twitter.com/AinslieCrypto';
+            igLink.href = 'https://www.instagram.com/ainsliecrypto';
         } else {
             abWebsite.style.display = 'inline';
             acWebsite.style.display = 'none';
+            facebookLink.href = 'https://www.facebook.com/AinslieBullion/';
+            xLink.href = 'https://twitter.com/AinslieBullion';
+            igLink.href = 'https://www.instagram.com/ainsliebullion/';
         }
     }
+
+    // Ainslie Office Selection
+    function officeSelected(selectedOffice) {
+        document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
+            element.style.display = 'none';
+        });
+
+        if (selectedOffice === 'Brisbane') {
+            document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3').forEach(element => {
+                element.style.display = ''; 
+            });
+        }
+        else if (selectedOffice === 'Melbourne') {
+            document.querySelectorAll('.officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
+                element.style.display = ''; 
+            });
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const initialOffice = document.getElementById('inputOffice').value;
+        officeSelected(initialOffice);
+    });
+
 
 
 </script>
