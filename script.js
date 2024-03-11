@@ -2,7 +2,7 @@ let lastSelectedOption = 'ab';
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    addBase64ImageToClass('body::before', bg);
+    addbgImage('body::before', bg);
 
 
     const abButton = document.getElementById("ab");
@@ -49,10 +49,10 @@ function reset() {
     location.reload();
 }
 
-function addBase64ImageToClass(className, base64Image) {
+function addbgImage(className, base64Image) {
     var style = document.createElement('style');
     document.head.appendChild(style);
-    var css = `.${className} { background-image: url('${base64Image}'); background-repeat: repeat; }`; // Example with repeat, adjust as needed
+    var css = `.${className} { background-image: url('${base64Image}'); background-repeat: repeat; }`; 
     style.appendChild(document.createTextNode(css));
 }
 
