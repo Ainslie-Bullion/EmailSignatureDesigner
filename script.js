@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const abButton = document.getElementById("ab");
     switchSection("abSection");
-    abButton.classList.add('pressed');
-    console.log("Class 'pressed' added:", abButton.classList.contains('pressed'));
+    abButton.classList.add('pressed')
+
 
     // Load all the base64 images
     function addImage(className, image, h, w) {
@@ -61,7 +61,7 @@ function switchSection(sectionId) {
     if (sectionId === 'abSection') {
         logoSection.style.display = 'flex';
     } else {
-        logoSection.style.display = 'none'; 
+        logoSection.style.display = 'none';
     }
 
     const officeSection = document.querySelector('.officeSelection');
@@ -152,19 +152,13 @@ document.getElementById('copyBtn').addEventListener('click', function () {
             document.execCommand('copy');
             const notification = document.getElementById('copyNotification');
             notification.style.display = 'block';
-            notification.style.position = 'absolute';
 
-            function moveNotification(event) {
-                notification.style.left = event.clientX + 20 + 'px';
-                notification.style.top = event.clientY + 20 + 'px';
-            }
-
-            document.addEventListener('mousemove', moveNotification);
-
-            setTimeout(function () {
-                notification.style.display = 'none';
-                document.removeEventListener('mousemove', moveNotification);
-            }, 10000);
+            fadeIn(notification, () => {
+                setTimeout(() => {
+                    fadeOut(notification, () => {
+                    });
+                }, 2000);
+            });
         } catch (err) {
             console.error('Failed to copy content: ', err);
         }
@@ -326,11 +320,13 @@ document.addEventListener('DOMContentLoaded', function () {
     officeSelected(initialOffice);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+
+// hectic js to simply hide and show the mobile phone number ( *~*)
+document.addEventListener('DOMContentLoaded', function () {
     const toggleMobile = document.getElementById('toggleMobile');
     let office = document.getElementById('inputOffice').value
-    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[1].innerHTML; 
-    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[1].innerHTML; 
+    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[1].innerHTML;
+    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[1].innerHTML;
     let initialTollFreeAdjacentContent = document.getElementById('tollFreeRow').cells[1].innerHTML;
 
     console.log("office: ", office);
@@ -338,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(initialTelephoneAdjacentContent)
     console.log(initialTollFreeAdjacentContent);
 
-    toggleMobile.addEventListener('change', function() {
+    toggleMobile.addEventListener('change', function () {
         let office = document.getElementById('inputOffice').value;
         if (this.checked) {
             document.getElementById('mobileRow').style.display = '';
@@ -349,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('tollFreeRow').cells[1].innerHTML = initialTollFreeAdjacentContent;
             let websiteRow = document.getElementById('websiteRow');
             if (websiteRow.cells.length > 1) {
-                websiteRow.deleteCell(1); 
+                websiteRow.deleteCell(1);
             }
 
             document.getElementById('mobileRowtmv').style.display = '';
@@ -361,11 +357,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('tollFreeRow').cells[1].innerHTML = initialTelephoneAdjacentContent;
 
             let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length < 2) { 
-                let newCell = websiteRow.insertCell(1); 
-                newCell.innerHTML = initialTollFreeAdjacentContent; 
+            if (websiteRow.cells.length < 2) {
+                let newCell = websiteRow.insertCell(1);
+                newCell.innerHTML = initialTollFreeAdjacentContent;
                 newCell.colSpan = 5;
-                newCell.style.fontFamily = "Arial, Helvetica, sans-serif"; 
+                newCell.style.fontFamily = "Arial, Helvetica, sans-serif";
                 newCell.style.fontSize = "13px";
             }
             document.getElementById('mobileRowtmv').style.display = 'none';
@@ -374,3 +370,22 @@ document.addEventListener('DOMContentLoaded', function() {
         officeSelected(office);
     });
 });
+
+function fadeIn(element, callback = () => { }) {
+    element.style.opacity = 0;
+    element.style.display = 'flex';
+    setTimeout(() => {
+        element.style.transition = 'opacity 1s';
+        element.style.opacity = 1;
+        setTimeout(callback, 1000);
+    }, 10);
+}
+
+function fadeOut(element, callback = () => { }) {
+    element.style.transition = 'opacity 1s';
+    element.style.opacity = 0;
+    setTimeout(() => {
+        element.style.display = 'none';
+        callback();
+    }, 1000);
+}

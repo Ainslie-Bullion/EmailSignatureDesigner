@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Signature</title>
+    <title>Email Signature Designer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
@@ -16,103 +16,73 @@
 </style>
 
 <body class="body">
-    <div id="copyNotification" class="copyNotification">
-        Content copied to clipboard, paste this into your outlook signature editor.
-    </div>
-    <div id="browserWarning"></div>
 
-    <div class="topBanner">
-        <span style="text-align: center;">Paste your signature into a desktop email client for best results.
+    <div class="titleContainer">
+        <span class="title" onclick="setdev()">
+            Email Signature Designer
         </span>
-    </div>
-    <div class="topBanner">
-        <span style="text-align: center;"><em>Padding around signature elements will be corrected in Outlook.</em>
-        </span>
-    </div>
+        <div class="copied-message" id="copyNotification">
+            Content copied to clipboard.
+        </div>
+        <div class="fetch-container">
+            <button type="button" id="ab" name="option" value="AB" class="get-btn"
+                onclick="setSelectedOption(this)">Ainslie Group</button>
+            <button type="button" id="rv" name="option" value="RV" class="get-btn"
+                onclick="setSelectedOption(this)">Reserve Vault</button>
+            <button type="button" id="tmv" name="option" value="TMV" class="get-btn"
+                onclick="setSelectedOption(this)">The Melbourne Vault</button>
+            <button type="button" id="reset" name="option" value="TMV" class="get-btn" style="color: orange;" onclick="reset(this)"><i
+                    class="fa fa-refresh" aria-hidden="true"></i></button>
+            <button id="copyBtn" class="get-btn"><i class="fas fa-copy"></i></button>
+        </div>
 
+
+    </div>
 
     <div class="optionWrapper">
         <div class="optionRow">
-            <div
-                style="display: flex; flex-direction: column; justify-content: flex-start; margin-right: 20px; background-color: white; padding: 20px; box-shadow: 0 0 4px 2px rgba(0,0,0,0.1); border-radius: 8px;">
-                <div style="margin-bottom: 15px;">
-                    <button type="button" id="ab" name="option" value="AB" class="btn btn-info" style="width: 100%;"
-                        onclick="setSelectedOption(this)">AB </button>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <button type="button" id="rv" name="option" value="RV" class="btn btn-info" style="width: 100%;"
-                        onclick="setSelectedOption(this)">RV </button>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <button type="button" id="tmv" name="option" value="TMV" class="btn btn-info" style="width: 100%;"
-                        onclick="setSelectedOption(this)">TMV</button>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <button type="button" id="reset" name="option" value="TMV" class="btn btn-warning"
-                        style="width: 100%;" onclick="reset(this)"><i class="fa fa-refresh"
-                            aria-hidden="true"></i></button>
-                </div>
-                <div style="margin-top: auto;">
-                    <button id="copyBtn" class="btn btn-success"
-                        style="width: 100%; box-shadow: 0 0 4px 2px rgba(0,0,0,0.1);"><i
-                            class="fas fa-copy"></i></button>
-                </div>
-            </div>
-
-
             <div class="flex-column">
 
                 <div class="flex-row">
-                    <label for="name" style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Full
+                    <label for="name">Full
                         Name:</label>
-                    <input type="text" class="inputName" id="name"
-                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
+                    <input type="text" class="inputName input-shared-style" id="name">
                 </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <label for="role"
-                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Role:</label>
-                    <input type="text" class="inputRole" id="role"
-                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
+                <div class="flex-row">
+                    <label for="role">Role:</label>
+                    <input type="text" class="inputRole input-shared-style" id="role">
                 </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <label for="personalLink"
-                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Personal Link:</label>
-                    <input type="text" class="inputPersonalLink" id="personalLink"
-                        placeholder="Example: x.com/pmengeman (no www or https)"
-                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
+                <div class="flex-row">
+                    <label for="personalLink">Personal Link:</label>
+                    <input type="text" class="inputPersonalLink input-shared-style" id="personalLink"
+                        placeholder="Example: x.com/pmengeman (no www or https)">
                 </div>
-                <div class="flex-row d-flex align-items-center">
-                    <label for="mobileInput"
-                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Mobile:</label>
+                <div class="flex-row">
+                    <label for="mobileInput">Mobile:</label>
                     <div class="input-container position-relative" style="flex-grow: 1;">
-                        <input type="tel" class="inputMobile" id="mobileInput" placeholder="Enter mobile number"
-                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
-                        <div class="form-check position-absolute"
-                            style="right: -85px; top: 0; bottom: 0; height: fit-content; margin: auto 0;">
+                        <input type="tel" class="inputMobile input-shared-style" id="mobileInput"
+                            placeholder="Mobile number is optional">
+                        <div class="form-check position-absolute">
                             <input class="form-check-input" type="checkbox" value="" id="toggleMobile" checked>
                             <label class="form-check-label" for="toggleMobile"></label>
                         </div>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <label for="phoneInput"
-                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Phone:</label>
-                    <input type="phone" class="inputPhone" id="phoneInput"
-                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;">
+                <div class="flex-row">
+                    <label for="phoneInput">Phone:</label>
+                    <input type="phone" class="inputPhone input-shared-style" id="phoneInput">
                 </div>
-                <div class="officeSelection" style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <label for="inputOffice"
-                        style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Office:</label>
-                    <select class="inputOffice" id="inputOffice"
-                        style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border-color 0.3s;"
+                <div class="officeSelection flex-row">
+                    <label for="inputOffice">Office:</label>
+                    <select class="inputOffice input-shared-style" id="inputOffice"
                         onchange="officeSelected(this.value)">
                         <option value="Brisbane" selected>Brisbane</option>
                         <option value="Melbourne">Melbourne</option>
                     </select>
                 </div>
 
-                <div class="logo-section">
-                    <label for="abLogoType" style="width: 80px; margin-right: 10px; font-size: 14px; color: #333;">Logo
+                <div class="logo-section flex-row">
+                    <label for="abLogoType">Logo
                         Type:</label>
                     <div class="logo abLogo" style="cursor: pointer;" onclick="imageClicked('abLogo')">
                         <span class="abLogoImage"></span>
@@ -603,6 +573,15 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="topBanner">
+        <span style="text-align: center;">Paste your signature into a desktop email client for best results.
+        </span>
+    </div>
+    <div class="topBanner">
+        <span style="text-align: center;"><em>Padding around signature elements will be corrected in Outlook.</em>
+        </span>
     </div>
 </body>
 
