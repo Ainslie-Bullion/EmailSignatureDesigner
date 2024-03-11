@@ -358,6 +358,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (websiteRow.cells.length > 1) {
                 websiteRow.deleteCell(1); 
             }
+
+            document.getElementById('mobileRowtmv').style.display = '';
+            document.getElementById('mobileRowRv').style.display = '';
+
         } else {
             document.getElementById('mobileRow').style.display = 'none';
             document.getElementById('telephoneRow').cells[1].innerHTML = initialMobileAdjacentContent;
@@ -371,6 +375,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 newCell.style.fontFamily = "Arial, Helvetica, sans-serif"; 
                 newCell.style.fontSize = "13px";
             }
+            document.getElementById('mobileRowtmv').style.display = 'none';
+            document.getElementById('mobileRowRv').style.display = 'none';
         }
         officeSelected(office);
     });
