@@ -335,17 +335,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function() {
     const toggleMobile = document.getElementById('toggleMobile');
-    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[1].innerHTML; // Stores the initial content next to the mobile row
-    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[1].innerHTML; // Stores the initial content next to the telephone row
+    let office = document.getElementById('inputOffice').value
+    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[1].innerHTML; 
+    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[1].innerHTML; 
     let initialTollFreeAdjacentContent = document.getElementById('tollFreeRow').cells[1].innerHTML;
 
+    console.log("office: ", office);
     console.log(initialMobileAdjacentContent)
     console.log(initialTelephoneAdjacentContent)
     console.log(initialTollFreeAdjacentContent);
 
     toggleMobile.addEventListener('change', function() {
+        let office = document.getElementById('inputOffice').value;
         if (this.checked) {
-            // Show Mobile and restore original content
             document.getElementById('mobileRow').style.display = '';
             document.getElementById('mobileRow').cells[1].innerHTML = initialMobileAdjacentContent;
             document.getElementById('telephoneRow').style.display = '';
@@ -354,23 +356,22 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('tollFreeRow').cells[1].innerHTML = initialTollFreeAdjacentContent;
             let websiteRow = document.getElementById('websiteRow');
             if (websiteRow.cells.length > 1) {
-                websiteRow.deleteCell(1); // Remove the dynamically added cell
+                websiteRow.deleteCell(1); 
             }
         } else {
-            // Hide Mobile and move adjacent content up
             document.getElementById('mobileRow').style.display = 'none';
             document.getElementById('telephoneRow').cells[1].innerHTML = initialMobileAdjacentContent;
             document.getElementById('tollFreeRow').cells[1].innerHTML = initialTelephoneAdjacentContent;
 
-            // Insert content next to websiteRow's current td
             let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length < 2) { // Ensure not to add more than one cell
-                let newCell = websiteRow.insertCell(1); // Create and insert a new cell
-                newCell.innerHTML = initialTollFreeAdjacentContent; // Add the content to the new cell
+            if (websiteRow.cells.length < 2) { 
+                let newCell = websiteRow.insertCell(1); 
+                newCell.innerHTML = initialTollFreeAdjacentContent; 
                 newCell.colSpan = 5;
-                newCell.style.fontFamily = "Arial, Helvetica, sans-serif"; // Replicate styles as needed
+                newCell.style.fontFamily = "Arial, Helvetica, sans-serif"; 
                 newCell.style.fontSize = "13px";
             }
         }
+        officeSelected(office);
     });
 });
