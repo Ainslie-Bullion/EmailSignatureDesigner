@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    height: 99%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    place-items: center;
+    background: linear-gradient(315deg, #24292e, #282d31);
+}
+
+.copyNotification {
+    display: none;
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    max-width: 300px;
+    white-space: normal;
+    box-sizing: border-box;
+}
+
+.sectionParent {
+    display: none;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: white;
+    max-width: auto;
+    min-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.sectionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.optionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 600px;
+}
+
+.optionRow {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    width: auto;
+    padding: 20px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 460px;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.flex-row label {
+    width: 80px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-style {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo img {
+    width: 120px;
+    vertical-align: middle;
+}
+
+.logo.aLogo img {
+    width: 100px;
+}
+
+.pressed {
+    background-color: #00438a;
+    color: white;
+}
+
+.topBanner {
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: smaller;
+    color: white;
+    padding-top: 10px
+}
+
+@media (max-width: 600px) {
+    .sectionWrapper {
+        display: block;
+    }
+}
