@@ -2,6 +2,11 @@ let lastSelectedOption = 'ab';
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    const abButton = document.getElementById("ab");
+    switchSection("abSection");
+    abButton.classList.add('pressed');
+    console.log("Class 'pressed' added:", abButton.classList.contains('pressed'));
+
     // Load all the base64 images
     function addImage(className, image, h, w) {
         const elements = document.querySelectorAll(className);
@@ -35,12 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.rvGImage', rvGImage, '17', '17');
 });
 
-// Show AB on load
-function setup() {
-    const abButton = document.getElementById("ab");
-    abButton.classList.add('pressed');
-    switchSection("abSection");
-}
 
 // Reset the form
 function reset() {
@@ -56,15 +55,13 @@ function switchSection(sectionId) {
     document.getElementById('rvSection').style.display = 'none';
     document.getElementById('tmvSection').style.display = 'none';
 
-    // Show the selected section
     document.getElementById(sectionId).style.display = 'block';
 
-    // Hide or show the logoSection based on whether abSection is active
     const logoSection = document.querySelector('.logo-section');
     if (sectionId === 'abSection') {
-        logoSection.style.display = 'flex'; // Show logoSection if abSection is active
+        logoSection.style.display = 'flex';
     } else {
-        logoSection.style.display = 'none'; // Hide logoSection otherwise
+        logoSection.style.display = 'none'; 
     }
 
     const officeSection = document.querySelector('.officeSelection');
@@ -99,21 +96,17 @@ function switchSection(sectionId) {
 */
 function setSelectedOption(clickedButton) {
 
-    // Update the lastSelectedOption variable
     lastSelectedOption = clickedButton.value.toLowerCase();
     console.log(lastSelectedOption);
     console.log("lastSelectedOption: ", lastSelectedOption)
     document.getElementById('copyBtn').style.display = 'block';
 
-    // Find and remove the .pressed class from all buttons
     document.querySelectorAll('button[name="option"]').forEach(button => {
         button.classList.remove('pressed');
     });
 
-    // Add the .pressed class to the clicked button
     clickedButton.classList.add('pressed');
 
-    // Construct the section ID based on the button value and switch the section
     const sectionId = lastSelectedOption + 'Section';
     switchSection(sectionId);
 }
