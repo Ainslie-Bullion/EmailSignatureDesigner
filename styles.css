@@ -89,6 +89,23 @@ body {
     box-shadow: 0 0 6px #ecd282;
 }
 
+.get-btn-copy {
+    padding: 5px 10px;
+    background: #218838;
+    color: #cccccc;
+    border: 1px solid #464646;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 13px;
+    transition: box-shadow 0.3s ease;
+}
+
+.get-btn-copy:hover {
+    outline: none;
+    box-shadow: 0 0 6px #218838;
+}
+
 
 .input-shared-style {
     flex-grow: 1;
