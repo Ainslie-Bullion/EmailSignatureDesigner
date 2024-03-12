@@ -310,6 +310,9 @@ function imageClicked(clickedLogoClass) {
 
 // Ainslie Office Selection
 function officeSelected(selectedOffice) {
+
+    const phoneLinkElements = document.querySelectorAll('.phoneLink');
+
     document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
         element.style.display = 'none';
     });
@@ -318,10 +321,18 @@ function officeSelected(selectedOffice) {
         document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3').forEach(element => {
             element.style.display = '';
         });
+        phoneLinkElements.forEach(linkElement => {
+            linkElement.href = "tel:+61732210500";
+            linkElement.textContent = "+61 7 3221 0500";
+        });
     }
     else if (selectedOffice === 'Melbourne') {
         document.querySelectorAll('.officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
             element.style.display = '';
+        });
+        phoneLinkElements.forEach(linkElement => {
+            linkElement.href = "tel:+61370376255";
+            linkElement.textContent = "+61 3 7037 6255";
         });
     }
 }
