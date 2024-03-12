@@ -308,7 +308,7 @@ function imageClicked(clickedLogoClass) {
     }
 }
 
-// Ainslie Office Selection
+// Ainslie Office Selection, switches office and telephone
 function officeSelected(selectedOffice) {
 
     const phoneLinkElements = document.querySelectorAll('.phoneLink');
