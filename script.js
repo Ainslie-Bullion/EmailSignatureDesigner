@@ -346,9 +346,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const toggleMobile = document.getElementById('toggleMobile');
     let office = document.getElementById('inputOffice').value
-    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[1].innerHTML;
-    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[1].innerHTML;
-    let initialTollFreeAdjacentContent = document.getElementById('tollFreeRow').cells[1].innerHTML;
+    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[2].innerHTML;
+    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[2].innerHTML;
+    let initialTollFreeAdjacentContent = document.getElementById('tollFreeRow').cells[2].innerHTML;
 
     console.log("office: ", office);
     console.log(initialMobileAdjacentContent)
@@ -359,29 +359,30 @@ document.addEventListener('DOMContentLoaded', function () {
         let office = document.getElementById('inputOffice').value;
         if (this.checked) {
             document.getElementById('mobileRow').style.display = '';
-            document.getElementById('mobileRow').cells[1].innerHTML = initialMobileAdjacentContent;
+            document.getElementById('mobileRow').cells[2].innerHTML = initialMobileAdjacentContent;
             document.getElementById('telephoneRow').style.display = '';
-            document.getElementById('telephoneRow').cells[1].innerHTML = initialTelephoneAdjacentContent;
+            document.getElementById('telephoneRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
             document.getElementById('tollFreeRow').style.display = '';
-            document.getElementById('tollFreeRow').cells[1].innerHTML = initialTollFreeAdjacentContent;
+            document.getElementById('tollFreeRow').cells[2].innerHTML = initialTollFreeAdjacentContent;
             let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length > 1) {
-                websiteRow.deleteCell(1);
+            if (websiteRow.cells.length > 2) {
+                websiteRow.deleteCell(2);
             }
 
             document.getElementById('mobileRowtmv').style.display = '';
             document.getElementById('mobileRowRv').style.display = '';
+           
 
         } else {
             document.getElementById('mobileRow').style.display = 'none';
-            document.getElementById('telephoneRow').cells[1].innerHTML = initialMobileAdjacentContent;
-            document.getElementById('tollFreeRow').cells[1].innerHTML = initialTelephoneAdjacentContent;
+            document.getElementById('telephoneRow').cells[2].innerHTML = initialMobileAdjacentContent;
+            document.getElementById('tollFreeRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
 
             let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length < 2) {
-                let newCell = websiteRow.insertCell(1);
+            if (websiteRow.cells.length < 3) {
+                let newCell = websiteRow.insertCell(2);
                 newCell.innerHTML = initialTollFreeAdjacentContent;
-                newCell.colSpan = 5;
+                newCell.colSpan = 6;
                 newCell.style.fontFamily = "Arial, Helvetica, sans-serif";
                 newCell.style.fontSize = "13px";
             }
