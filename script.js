@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.abSigLogo', abSigLogo, '45', '160');
     addImage('.acSigLogo', acSigLogo, '45', '160');
     addImage('.abFbImage', abFbImage, '32', '32');
-    addImage('.abIgImage', abIgImage, '', '');
-    addImage('.abLnImage', abLnImage, '', '');
-    addImage('.abXImage', abXImage, '', '');
-    addImage('.abYtImage', abYtImage, '', '');
+    addImage('.abIgImage', abIgImage, '32', '32');
+    addImage('.abLnImage', abLnImage, '32', '32');
+    addImage('.abXImage', abXImage, '32', '32');
+    addImage('.abYtImage', abYtImage, '32', '32');
     addImage('.ab50yrImage', ab50yrImage, '139', '420');
     addImage('.rvSpacer', rvSpacer, '13', '16');
     addImage('.rvLogoImage', rvLogoImage, '80', '250');
