@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.ainslieSigLogo', ainslieSigLogo, '45', '160');
     addImage('.abSigLogo', abSigLogo, '45', '160');
     addImage('.acSigLogo', acSigLogo, '45', '160');
-    addImage('.abFbImage', abFbImage, '', '');
+    addImage('.abFbImage', abFbImage, '32', '32');
     addImage('.abIgImage', abIgImage, '', '');
     addImage('.abLnImage', abLnImage, '', '');
     addImage('.abXImage', abXImage, '', '');
