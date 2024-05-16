@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // hectic js to simply hide and show the mobile phone number ( *~*)
 document.addEventListener('DOMContentLoaded', function () {
     const toggleMobile = document.getElementById('toggleMobile');
-    toggleMobile.checked = false;
+    toggleMobile.checked = true;
     let office = document.getElementById('inputOffice').value
     let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[2].innerHTML;
     let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[2].innerHTML;
@@ -357,9 +357,9 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(initialTollFreeAdjacentContent);
 
     // Initially hide the content
-    document.getElementById('mobileRow').style.display = 'none';
-    document.getElementById('mobileRowtmv').style.display = 'none';
-    document.getElementById('mobileRowRv').style.display = 'none';
+    // document.getElementById('mobileRow').style.display = 'none';
+    // document.getElementById('mobileRowtmv').style.display = 'none';
+    // document.getElementById('mobileRowRv').style.display = 'none';
 
     toggleMobile.addEventListener('change', function () {
         let office = document.getElementById('inputOffice').value;
