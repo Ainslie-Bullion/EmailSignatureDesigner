@@ -313,29 +313,32 @@ function officeSelected(selectedOffice) {
 
     const phoneLinkElements = document.querySelectorAll('.phoneLink');
 
-    document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
+    document.querySelectorAll('.infoAtMelb, .infoAtBris, .officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
         element.style.display = 'none';
     });
 
     if (selectedOffice === 'Brisbane') {
-        document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3').forEach(element => {
+        document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .infoAtBris').forEach(element => {
             element.style.display = '';
         });
+
         phoneLinkElements.forEach(linkElement => {
             linkElement.href = "tel:+61732210500";
             linkElement.textContent = "+61 7 3221 0500";
         });
     }
     else if (selectedOffice === 'Melbourne') {
-        document.querySelectorAll('.officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
+        document.querySelectorAll('.officeMelb1, .officeMelb2, .officeMelb3, .infoAtMelb').forEach(element => {
             element.style.display = '';
         });
+
         phoneLinkElements.forEach(linkElement => {
             linkElement.href = "tel:+61370376255";
             linkElement.textContent = "+61 3 7037 6255";
         });
     }
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const initialOffice = document.getElementById('inputOffice').value;
     officeSelected(initialOffice);
