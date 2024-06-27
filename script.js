@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // hectic js to simply hide and show the mobile phone number ( *~*)
 document.addEventListener('DOMContentLoaded', function () {
     const toggleMobile = document.getElementById('toggleMobile');
-    toggleMobile.checked = true;
+    toggleMobile.checked = false;
     let office = document.getElementById('inputOffice').value
     let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[2].innerHTML;
     let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[2].innerHTML;
@@ -356,10 +356,21 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(initialTelephoneAdjacentContent)
     console.log(initialTollFreeAdjacentContent);
 
-    // Initially hide the content
-    // document.getElementById('mobileRow').style.display = 'none';
-    // document.getElementById('mobileRowtmv').style.display = 'none';
-    // document.getElementById('mobileRowRv').style.display = 'none';
+    // Initially hide the content as if the toggle was unchecked
+    document.getElementById('mobileRow').style.display = 'none';
+    document.getElementById('telephoneRow').cells[2].innerHTML = initialMobileAdjacentContent;
+    document.getElementById('tollFreeRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
+
+    let websiteRow = document.getElementById('websiteRow');
+    if (websiteRow.cells.length < 3) {
+        let newCell = websiteRow.insertCell(2);
+        newCell.innerHTML = initialTollFreeAdjacentContent;
+        newCell.colSpan = 6;
+        newCell.style.fontFamily = "Arial, Helvetica, sans-serif";
+        newCell.style.fontSize = "13px";
+    }
+    document.getElementById('mobileRowtmv').style.display = 'none';
+    document.getElementById('mobileRowRv').style.display = 'none';
 
     toggleMobile.addEventListener('change', function () {
         let office = document.getElementById('inputOffice').value;
