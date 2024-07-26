@@ -102,6 +102,10 @@ body::before {
     box-shadow: 0 0 6px #ecd282;
 }
 
+.get-btn:focus {
+    outline: none;
+}
+
 .get-btn-copy {
     padding: 5px 10px;
     background: #218838;
