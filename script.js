@@ -20,14 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addImage('.abLogoImage', abLogoImage, '35', '120');
     addImage('.acLogoImage', acLogoImage, '35', '120');
-    addImage('.ainslieLogoImage', ainslieLogoImage, '30', '120');
+    addImage('.ainslieLogoImage', ainslieLogoImage, '22', '120');
     addImage('.tmvLogoImage', tmvLogoImage, '80', '125');
     addImage('.tmvFbImage', tmvFbImage, '17', '17');
     addImage('.tmvLnImage', tmvLnImage, '17', '17');
     addImage('.tmvGImage', tmvGImage, '17', '17');
     addImage('.tmvXImage', tmvXImage, '17', '17');
     addImage('.asialImage', asialImage, '', '400');
-    addImage('.ainslieSigLogo', ainslieSigLogo, '45', '160');
+    addImage('.ainslieSigLogo', ainslieSigLogo, '35', '160');
     addImage('.abSigLogo', abSigLogo, '45', '160');
     addImage('.acSigLogo', acSigLogo, '45', '160');
     addImage('.abFbImage', abFbImage, '32', '32');
@@ -280,6 +280,7 @@ function imageClicked(clickedLogoClass) {
     const allTargetLogos = document.querySelectorAll('span[data-target-logo]');
     const abWebsite = document.querySelector('.abwebsite');
     const acWebsite = document.querySelector('.acwebsite');
+    const ainslieWebsite = document.querySelector('.ainslie_website');
     const facebookLink = document.querySelector('.abfb');
     const xLink = document.querySelector('.abx');
     const igLink = document.querySelector('.abig');
@@ -294,13 +295,26 @@ function imageClicked(clickedLogoClass) {
 
     // Toggle website visibility based on clicked logo
     if (clickedLogoClass === 'acLogo') {
+        ainslieWebsite.style.display = 'none';
         abWebsite.style.display = 'none';
         acWebsite.style.display = 'inline';
         facebookLink.href = 'https://www.facebook.com/ainsliecrypto.com.au';
         xLink.href = 'https://twitter.com/AinslieCrypto';
         igLink.href = 'https://www.instagram.com/ainsliecrypto';
-    } else {
+    } 
+    
+    if (clickedLogoClass === 'abLogo') {
+        ainslieWebsite.style.display = 'none';
         abWebsite.style.display = 'inline';
+        acWebsite.style.display = 'none';
+        facebookLink.href = 'https://www.facebook.com/AinslieBullion/';
+        xLink.href = 'https://twitter.com/AinslieBullion';
+        igLink.href = 'https://www.instagram.com/ainsliebullion/';
+    }
+
+    if (clickedLogoClass === 'aLogo') {
+        ainslieWebsite.style.display = 'inline';
+        abWebsite.style.display = 'none';
         acWebsite.style.display = 'none';
         facebookLink.href = 'https://www.facebook.com/AinslieBullion/';
         xLink.href = 'https://twitter.com/AinslieBullion';
