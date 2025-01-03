@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.abLnImage', abLnImage, '32', '32');
     addImage('.abXImage', abXImage, '32', '32');
     addImage('.abYtImage', abYtImage, '32', '32');
-    addImage('.abXmasImage', abXmasImage, '139', '420');
+    addImage('.abSaverImage', abSaverImage, '121', '420');
     addImage('.rvSpacer', rvSpacer, '13', '16');
     addImage('.rvLogoImage', rvLogoImage, '80', '250');
     addImage('.rvFbImage', rvFbImage, '17', '17');
