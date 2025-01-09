@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.abLnImage', abLnImage, '32', '32');
     addImage('.abXImage', abXImage, '32', '32');
     addImage('.abYtImage', abYtImage, '32', '32');
-    addImage('.abSaverImage', abSaverImage, '121', '420');
+    addImage('.abSaverImage', abSaverImage, '135', '420');
     addImage('.rvSpacer', rvSpacer, '13', '16');
     addImage('.rvLogoImage', rvLogoImage, '80', '250');
     addImage('.rvFbImage', rvFbImage, '17', '17');
@@ -284,6 +284,7 @@ function imageClicked(clickedLogoClass) {
     const facebookLink = document.querySelector('.abfb');
     const xLink = document.querySelector('.abx');
     const igLink = document.querySelector('.abig');
+    const abEmail = document.querySelector('.infoAtBris');
 
     allTargetLogos.forEach(targetLogo => {
         if (targetLogo.getAttribute('data-target-logo') === clickedLogoClass) {
@@ -301,6 +302,9 @@ function imageClicked(clickedLogoClass) {
         facebookLink.href = 'https://www.facebook.com/ainsliecrypto.com.au';
         xLink.href = 'https://twitter.com/AinslieCrypto';
         igLink.href = 'https://www.instagram.com/ainsliecrypto';
+        abEmail.textContent = 'info@ainsliecrypto.com.au';
+        abEmail.href = 'mailto:info@ainsliecrypto.com.au';
+        abEmail.style.fontWeight = 'bold';
     } 
     
     if (clickedLogoClass === 'abLogo') {
@@ -310,6 +314,9 @@ function imageClicked(clickedLogoClass) {
         facebookLink.href = 'https://www.facebook.com/AinslieBullion/';
         xLink.href = 'https://twitter.com/AinslieBullion';
         igLink.href = 'https://www.instagram.com/ainsliebullion/';
+        abEmail.textContent = 'info@ainsliebullion.com.au';
+        abEmail.href = 'mailto:info@ainsliebullion.com.au';
+        abEmail.style.fontWeight = 'bold';
     }
 
     if (clickedLogoClass === 'aLogo') {
@@ -319,6 +326,9 @@ function imageClicked(clickedLogoClass) {
         facebookLink.href = 'https://www.facebook.com/AinslieBullion/';
         xLink.href = 'https://twitter.com/AinslieBullion';
         igLink.href = 'https://www.instagram.com/ainsliebullion/';
+        abEmail.textContent = 'info@ainslie.com.au';
+        abEmail.href = 'mailto:info@ainslie.com.au';
+        abEmail.style.fontWeight = 'bold';
     }
 }
 
