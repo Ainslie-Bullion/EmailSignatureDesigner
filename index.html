@@ -78,6 +78,7 @@
                         onchange="officeSelected(this.value)">
                         <option value="Brisbane" selected>Brisbane</option>
                         <option value="Melbourne">Melbourne</option>
+                        <option value="Gold Coast">Gold Coast</option>
                     </select>
                 </div>
 
@@ -257,7 +258,7 @@
                         cellpadding="0">
                         <tbody>
                             <tr>
-                                <td colspan="7" style="padding-bottom: 3px;">
+                                <td colspan="2" style="padding-bottom: 3px;">
                                     <span class="displayName"
                                         style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">Name
                                         placeholder
@@ -265,109 +266,159 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="7" style="padding-bottom: 10px; border-bottom: 1px solid black;">
+                                <td colspan="2" style="padding-bottom: 10px; border-bottom: 1px solid black;">
                                     <span class="displayRole"
                                         style="font-family: Arial, Helvetica, sans-serif; font-size: 16.5px;"><strong>Role
                                             placeholder</strong></span>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-top: 6px; padding-bottom: 15px; " colspan="6">
+                                <td style="padding-top: 6px; padding-bottom: 15px; " colspan="2">
                                     <a class="personalLink" href="https://twitter.com/pmengeman" target="_blank"
                                         style=" display:none; text-decoration:underline; color:black; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">https://twitter.com/pmengeman</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <!-- NEW 2-COLUMN TABLE STRUCTURE -->
                     <table style="border:none;width:400px;border-spacing: 0px !important;" cellspacing="0"
                         cellpadding="0">
                         <tbody>
-                            <!-- mobile row -->
-                            <tr id="mobileRow">
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <strong>M</strong>&nbsp;
+                            <tr>
+                                <!-- Left Column for M, P, T, W -->
+                                <td style="width: 210px; vertical-align: top;">
+                                    <table style="border:none;border-spacing: 0px !important;" cellspacing="0"
+                                        cellpadding="0">
+                                        <tbody>
+                                            <!-- mobile row -->
+                                            <tr id="mobileRow">
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <strong>M</strong>&nbsp;
+                                                </td>
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a class="mobileLink"
+                                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="tel:0400000000">0400 000 000</a>
+                                                </td>
+                                            </tr>
+                                            <!-- telephone row -->
+                                            <tr id="telephoneRow">
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <strong>P</strong>&nbsp;
+                                                </td>
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a class="phoneLink"
+                                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="tel:+61732210500">+61 7 3221 0500</a>
+                                                </td>
+                                            </tr>
+                                            <!-- toll free phone row -->
+                                            <tr id="tollFreeRow">
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <strong>T</strong>&nbsp;
+                                                </td>
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="tel:1800246754">1800 246 754</a>
+                                                </td>
+                                            </tr>
+                                            <!--website row-->
+                                            <tr id="websiteRow">
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <strong>W</strong>&nbsp;
+                                                </td>
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a class="ainslie_website"
+                                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="https://ainslie.com.au" target="_blank">ainslie.com.au</a>
+                                                    <a class="abwebsite"
+                                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="https://ainsliebullion.com.au"
+                                                        target="_blank">ainsliebullion.com.au</a>
+                                                    <a class="acwebsite"
+                                                        style="display: none;font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
+                                                        href="https://ainsliecrypto.com.au/?utm_source=email&utm_medium=email_signature&utm_campaign=organic"
+                                                        target="_blank">ainsliecrypto.com.au</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </td>
-                                <td width="190" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <a class="mobileLink"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="tel:0400000000">0400 000 000</a>
-                                </td>
-                                <td colspan="5"
-                                    style=" font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
-                                    <span class="officeBrisbane1"
-                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px;"><strong>Ainslie
-                                            Brisbane</strong></span>
-                                    <span class="officeMelb1"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;"><strong>Ainslie
-                                            Melbourne</strong></span>
-                                </td>
-                            </tr>
-                            <!-- telephone row -->
-                            <tr id="telephoneRow">
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <strong>P</strong>&nbsp;
-                                </td>
-                                <td width="190" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <a class="phoneLink"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="tel:+61732210500">+61 7 3221 0500</a>
-                                </td>
-                                <td colspan="5"
-                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
-                                    <a class="officeBrisbane2"
-                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9" target="_blank">L6, 12 Creek
-                                        Street,</a>
-                                    <a class="officeMelb2"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8" target="_blank">L14, 357
-                                        Collins Street,</a>
-                                </td>
-                            </tr>
-                            <tr id="tollFreeRow">
-                                <!-- toll free phone row -->
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <strong>T</strong>&nbsp;
-                                </td>
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <a style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="tel:1800246754">1800 246 754</a>
-                                </td>
-                                <td colspan="5"
-                                    style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <a class="officeBrisbane3"
-                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9" target="_blank">Brisbane,
-                                        Queensland 4000</a>
-                                    <a class="officeMelb3"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8" target="_blank">Melbourne,
-                                        Victoria 3000</a>
-                                </td>
-                            </tr>
-                            <tr id="websiteRow">
-                                <!--website row-->
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <strong>W</strong>&nbsp;
-                                </td>
-                                <td style="font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-                                    <!--ainslie website-->
-                                    <a class="ainslie_website"
-                                        style="display: none; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://ainslie.com.au" target="_blank">ainslie.com.au</a>
-                                    <!--ab website-->
-                                    <a class="abwebsite"
-                                        style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://ainsliebullion.com.au" target="_blank">ainsliebullion.com.au</a>
-                                    <!--ac website-->
-                                    <a class="acwebsite"
-                                        style="display: none;font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:underline; color:black;"
-                                        href="https://ainsliecrypto.com.au/?utm_source=email&utm_medium=email_signature&utm_campaign=organic"
-                                        target="_blank">ainsliecrypto.com.au</a>
+                                <!-- Right Column for Address -->
+                                <td style="vertical-align: top;">
+                                    <table style="border:none;border-spacing: 0px !important;" cellspacing="0"
+                                        cellpadding="0">
+                                        <tbody>
+                                            <tr id="addressNameRow">
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
+                                                    <span class="officeBrisbane1"
+                                                        style="display: none;"><strong>Ainslie
+                                                            Brisbane</strong></span>
+                                                    <span class="officeMelb1" style="display: none;"><strong>Ainslie
+                                                            Melbourne</strong></span>
+                                                    <span class="officeGC1" style="display: none;"><strong>Ainslie
+                                                            Gold Coast</strong></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: middle;">
+                                                    <a class="officeBrisbane2"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9"
+                                                        target="_blank">L6, 12 Creek Street,</a>
+                                                    <a class="officeMelb2"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8"
+                                                        target="_blank">L14, 357 Collins Street,</a>
+                                                    <a class="officeGC2"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/j2yWW6dsdZ8jGxr4A"
+                                                        target="_blank">L3, Suite 301</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a class="officeBrisbane3"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/oTCVModNJt7T5h3r9"
+                                                        target="_blank">Brisbane, Queensland 4000</a>
+                                                    <a class="officeMelb3"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/XUtXcTNhXZL4jc5V8"
+                                                        target="_blank">Melbourne, Victoria 3000</a>
+                                                    <a class="officeGC3"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/j2yWW6dsdZ8jGxr4A"
+                                                        target="_blank">2400 Gold Coast Hwy,</a>
+                                                </td>
+                                            </tr>
+                                            <tr id="addressLine3Row" style="display: none;">
+                                                <td
+                                                    style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                                                    <a class="officeGC4"
+                                                        style="display: none; text-decoration:underline; color:black;"
+                                                        href="https://maps.app.goo.gl/j2yWW6dsdZ8jGxr4A"
+                                                        target="_blank">Mermaid Beach, QLD 4218</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                     <table style="border:none;width:400px;border-spacing: 0px !important;" cellspacing="0"
                         cellpadding="0">
                         <tbody>
@@ -446,11 +497,11 @@
                             </tr>
                             <tr>
                                 <td colspan="6">
-                                    <!-- saver banner -->
-                                    <a href="https://ainsliebullion.com.au/Ainslie-Saver" target="_blank"
+                                    <!-- new banner -->
+                                    <a href="https://ainsliebullion.com.au/Gold-Coast" target="_blank"
                                         title="Ainslie Bullion website link">
                                         <span style='color:#f9f7f7;'>
-                                            <span class="abSaverImage"></span>
+                                            <span class="agBannerLogoImage"></span>
                                         </span>
                                     </a>
                                 </td>
@@ -462,8 +513,8 @@
                             </tr>
                             <tr>
                                 <td colspan="6" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px;">
-                                    <span>Purchase online, via phone or over the counter at our <strong>Brisbane and
-                                            Melbourne
+                                    <span>Purchase online, via phone or over the counter at our <strong>Brisbane,
+                                            Melbourne and Gold Coast
                                             Offices.</strong> Ainslie
                                         recommends <strong>Reserve Vault (Brisbane)</strong> and <strong>The
                                             Melbourne
@@ -484,6 +535,10 @@
                                         <a class="infoAtMelb" href="mailto:melbourne@ainsliebullion.com.au"
                                             style="text-decoration:underline; color:rgb(253, 101, 101); display: none;">
                                             <strong>melbourne@ainsliebullion.com.au</strong>
+                                        </a>
+                                        <a class="infoAtGC" href="mailto:info@ainsliebullion.com.au"
+                                            style="text-decoration:underline; color:rgb(253, 101, 101); display: none;">
+                                            <strong>info@ainsliebullion.com.au</strong>
                                         </a>
                                     </span>
                                 </td>

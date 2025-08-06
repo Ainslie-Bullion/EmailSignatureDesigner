@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.abLnImage', abLnImage, '32', '32');
     addImage('.abXImage', abXImage, '32', '32');
     addImage('.abYtImage', abYtImage, '32', '32');
-    addImage('.abSaverImage', abSaverImage, '135', '420');
+    addImage('.agBannerLogoImage', agBannerLogo, '135', '420'); // New Banner
     addImage('.rvSpacer', rvSpacer, '13', '16');
     addImage('.rvLogoImage', rvLogoImage, '80', '250');
     addImage('.rvFbImage', rvFbImage, '17', '17');
@@ -305,8 +305,8 @@ function imageClicked(clickedLogoClass) {
         abEmail.textContent = 'info@ainsliecrypto.com.au';
         abEmail.href = 'mailto:info@ainsliecrypto.com.au';
         abEmail.style.fontWeight = 'bold';
-    } 
-    
+    }
+
     if (clickedLogoClass === 'abLogo') {
         ainslieWebsite.style.display = 'none';
         abWebsite.style.display = 'inline';
@@ -336,10 +336,15 @@ function imageClicked(clickedLogoClass) {
 function officeSelected(selectedOffice) {
 
     const phoneLinkElements = document.querySelectorAll('.phoneLink');
+    const addressLine3Row = document.getElementById('addressLine3Row');
 
-    document.querySelectorAll('.infoAtMelb, .infoAtBris, .officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3').forEach(element => {
+    // Hide all office-specific elements first
+    document.querySelectorAll('.infoAtMelb, .infoAtBris, .infoAtGC, .officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .officeMelb1, .officeMelb2, .officeMelb3, .officeGC1, .officeGC2, .officeGC3, .officeGC4').forEach(element => {
         element.style.display = 'none';
     });
+
+    // Hide the third address row by default
+    addressLine3Row.style.display = 'none';
 
     if (selectedOffice === 'Brisbane') {
         document.querySelectorAll('.officeBrisbane1, .officeBrisbane2, .officeBrisbane3, .infoAtBris').forEach(element => {
@@ -361,6 +366,19 @@ function officeSelected(selectedOffice) {
             linkElement.textContent = "+61 3 7037 6255";
         });
     }
+    else if (selectedOffice === 'Gold Coast') {
+        // Show the 3-line address elements and the specific info email
+        document.querySelectorAll('.officeGC1, .officeGC2, .officeGC3, .officeGC4, .infoAtGC').forEach(element => {
+            element.style.display = '';
+        });
+        // Show the third address row
+        addressLine3Row.style.display = '';
+
+        phoneLinkElements.forEach(linkElement => {
+            linkElement.href = "tel:+61721390940";
+            linkElement.textContent = "+61 7 2139 0940";
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -369,71 +387,24 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// hectic js to simply hide and show the mobile phone number ( *~*)
+// CORRECTED logic for hiding/showing mobile number
 document.addEventListener('DOMContentLoaded', function () {
     const toggleMobile = document.getElementById('toggleMobile');
+    const mobileRow = document.getElementById('mobileRow');
+    const mobileRowTmv = document.getElementById('mobileRowtmv');
+    const mobileRowRv = document.getElementById('mobileRowRv');
+
+    // Initial state: unchecked and hidden
     toggleMobile.checked = false;
-    let office = document.getElementById('inputOffice').value
-    let initialMobileAdjacentContent = document.getElementById('mobileRow').cells[2].innerHTML;
-    let initialTelephoneAdjacentContent = document.getElementById('telephoneRow').cells[2].innerHTML;
-    let initialTollFreeAdjacentContent = document.getElementById('tollFreeRow').cells[2].innerHTML;
-
-    console.log("office: ", office);
-    console.log(initialMobileAdjacentContent)
-    console.log(initialTelephoneAdjacentContent)
-    console.log(initialTollFreeAdjacentContent);
-
-    // Initially hide the content as if the toggle was unchecked
-    document.getElementById('mobileRow').style.display = 'none';
-    document.getElementById('telephoneRow').cells[2].innerHTML = initialMobileAdjacentContent;
-    document.getElementById('tollFreeRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
-
-    let websiteRow = document.getElementById('websiteRow');
-    if (websiteRow.cells.length < 3) {
-        let newCell = websiteRow.insertCell(2);
-        newCell.innerHTML = initialTollFreeAdjacentContent;
-        newCell.colSpan = 6;
-        newCell.style.fontFamily = "Arial, Helvetica, sans-serif";
-        newCell.style.fontSize = "13px";
-    }
-    document.getElementById('mobileRowtmv').style.display = 'none';
-    document.getElementById('mobileRowRv').style.display = 'none';
+    mobileRow.style.display = 'none';
+    mobileRowTmv.style.display = 'none';
+    mobileRowRv.style.display = 'none';
 
     toggleMobile.addEventListener('change', function () {
-        let office = document.getElementById('inputOffice').value;
-        if (this.checked) {
-            document.getElementById('mobileRow').style.display = '';
-            document.getElementById('mobileRow').cells[2].innerHTML = initialMobileAdjacentContent;
-            document.getElementById('telephoneRow').style.display = '';
-            document.getElementById('telephoneRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
-            document.getElementById('tollFreeRow').style.display = '';
-            document.getElementById('tollFreeRow').cells[2].innerHTML = initialTollFreeAdjacentContent;
-            let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length > 2) {
-                websiteRow.deleteCell(2);
-            }
-
-            document.getElementById('mobileRowtmv').style.display = '';
-            document.getElementById('mobileRowRv').style.display = '';
-
-
-        } else {
-            document.getElementById('mobileRow').style.display = 'none';
-            document.getElementById('telephoneRow').cells[2].innerHTML = initialMobileAdjacentContent;
-            document.getElementById('tollFreeRow').cells[2].innerHTML = initialTelephoneAdjacentContent;
-
-            let websiteRow = document.getElementById('websiteRow');
-            if (websiteRow.cells.length < 3) {
-                let newCell = websiteRow.insertCell(2);
-                newCell.innerHTML = initialTollFreeAdjacentContent;
-                newCell.colSpan = 6;
-                newCell.style.fontFamily = "Arial, Helvetica, sans-serif";
-                newCell.style.fontSize = "13px";
-            }
-            document.getElementById('mobileRowtmv').style.display = 'none';
-            document.getElementById('mobileRowRv').style.display = 'none';
-        }
-        officeSelected(office);
+        const displayStyle = this.checked ? '' : 'none';
+        mobileRow.style.display = displayStyle;
+        mobileRowTmv.style.display = displayStyle;
+        mobileRowRv.style.display = displayStyle;
     });
 });
 
