@@ -75,10 +75,13 @@ function switchSection(sectionId) {
     }
 
     const officeSection = document.querySelector('.officeSelection');
+    const phoneSection = document.querySelector('.phoneSection');
     if (sectionId !== 'abSection') {
         officeSection.style.display = 'none';
+        phoneSection.style.display = 'flex';
     } else {
         officeSection.style.display = 'flex';
+        phoneSection.style.display = 'none';
     }
 
     // Clear input fields
