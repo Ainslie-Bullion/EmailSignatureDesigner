@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addImage('.abLnImage', abLnImage, '32', '32');
     addImage('.abXImage', abXImage, '32', '32');
     addImage('.abYtImage', abYtImage, '32', '32');
-    addImage('.agBannerLogoImage', agBannerLogo, '135', '420'); // New Banner
+    addImage('.abXmasImage', abXmasImage, '135', '420'); // New Banner
     addImage('.rvSpacer', rvSpacer, '13', '16');
     addImage('.rvLogoImage', rvLogoImage, '80', '250');
     addImage('.rvFbImage', rvFbImage, '17', '17');
